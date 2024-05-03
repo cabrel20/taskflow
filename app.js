@@ -12,6 +12,7 @@ const store = new MongodbStrore({ uri: MONGODB_URI, collection: "sessions" });
 
 const errorController = require("./controllers/error-controller");
 const authRoutes = require("./routes/auth-routes");
+const userRoutes = require("./routes/user-routes");
 
 app.set("view engine", "ejs");
 app.set("views", "views");
@@ -27,6 +28,7 @@ app.use(
 );
 
 app.use("/auth", authRoutes);
+app.use(userRoutes);
 app.use(errorController.get404);
 
 mongoose
