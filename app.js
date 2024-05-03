@@ -7,6 +7,9 @@ const MongodbStrore = require("connect-mongodb-session")(session);
 const app = express();
 const store = new MongodbStrore({ uri: MONGODB_URI, collection: "sessions" });
 
+const MONGODB_URI =
+  "mongodb+srv://yann:loulou237@cluster0.lajrlny.mongodb.net/taskflow_db?retryWrites=true&w=majority&appName=Cluster0";
+
 const errorController = require("./controllers/error-controller");
 const authRoutes = require("./routes/auth-routes");
 
