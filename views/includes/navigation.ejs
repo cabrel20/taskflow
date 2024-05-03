@@ -4,8 +4,9 @@
   <div
     class="flex items-center justify-between py-3 px-8 lg:px-30 border-b border-gray-200"
   >
-    <h4 class="text-2xl font-bold text-violet-600">Taskflow</h4>
+    <a href="/"><h4 class="text-2xl font-bold text-violet-600">Taskflow</h4></a>
     <nav class="space-x-4">
+      <% if(!isLoggedIn){%>
       <a
         class="text-md <%= pageTitle === 'Sign In' ? 'text-violet-600': 'text-gray-600' %>"
         href="/auth/new-session"
@@ -16,6 +17,13 @@
         href="/auth/sign-up"
         >Sign up</a
       >
+      <%}else{%>
+      <form action="/auth/logout" method="post">
+        <button type="submit" class="bg-white text-gray-600 text-md">
+          Logout
+        </button>
+      </form>
+      <%}%>
     </nav>
   </div>
 </body>
